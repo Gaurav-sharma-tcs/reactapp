@@ -1,0 +1,9 @@
+sudo: required
+services:
+   - docker
+
+before_install:
+   - docker build -t gaurav/reactapp -f Dockerfile.dev .
+
+script:
+   - docker run gaurav/reactapp npm run test -- --coverage   
